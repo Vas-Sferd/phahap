@@ -31,7 +31,7 @@ use axum::{
     http::StatusCode,
     response::Html,
     routing::{get, post},
-    Extension, Router,
+    Router,
 };
 use std::{
     env,
@@ -87,9 +87,4 @@ async fn static_handler((Extension(dir), path): (Extension<PathBuf>, PathBuf)) -
     } else {
         Err(StatusCode::NOT_FOUND)
     }
-}
-
-#[derive(serde::Deserialize)]
-struct MyFormData {
-    data: Option<String>,
 }
